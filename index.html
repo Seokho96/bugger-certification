@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>더블클래식치즈버거 자격증</title>
+    <style>
+
+body {
+    font-family: Montserrat, sans-serif;
+    margin: 0; 
+    padding: 0; 
+  }
+
+  .blur-background {
+    background-image: url('./lotte.svg'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1; 
+    opacity: 0.3;
+  }
+
+  .footer-background {
+    background-image: url('./lloteria_logo.png'); 
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  span {
+    font-weight: bold;
+  }
+      .mt10 {
+        padding-top: 10px;
+      }
+      .df {
+        display: flex;
+      }
+
+      /* 모바일 */
+      @media (max-width: 767px) {
+        br.break-t {
+          display: none;
+        }
+        br.break-m {
+          display: inline;
+        }
+
+      }
+      /* 테블릿 세로 */
+      @media (min-width: 768px) and (max-width: 1024px) {
+        br.break-m {
+          display: none;
+        }
+        br.break-t {
+          display: inline;
+        }
+        .span-t{
+          margin-left: 100px !important;
+        }
+   
+      }
+      @media (min-width: 768px) and (max-width: 800px) {
+        .span-t{
+          margin-left: 80px !important;
+        }
+      }
+      /* 테블릿 가로 */
+      @media (min-width: 1025px) and (max-width: 1199px) {
+        br.break-m {
+          display: none;
+        }
+        br.break-t {
+          display: none;
+        }
+ 
+      }
+      
+      /* 데스크탑 일반 */
+      @media (min-width: 1200px) {
+        br.break-m {
+          display: none;
+        }
+      }
+      .flex{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .df {
+        display: flex;
+      }
+      .title{
+        margin-top: 80px;
+      }
+      .text-center{
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="blur-background"></div>
+    <div class="flex">
+        <div class="text-center" style="  width: 100vw;
+        height: 100vh; flex: 1; ">
+          <div class="title">
+          <b style="font-size: 2rem">자&nbsp;&nbsp;&nbsp;격&nbsp;&nbsp;&nbsp;증</b>
+          <br/>
+          <b style="font-size: 0.8rem">Bugger Certification</b>  
+        </div>
+      </div>
+        <div class="text-center" style="  width: 100vw;
+        height: 100vh; flex: 1;">
+         <div class="df">
+          <div style="flex: 1">
+            <span>성&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;명</span>
+          </div>
+          <div style="flex: 1; text-align: left;">
+            <span>최예영</span>
+          </div>
+          <div style="flex: 1"></div>
+        </div> 
+        <div class="mt10 df">
+          <div style="flex: 1">
+            <span>생년월일</span>
+          </div>
+          <div style="flex: 1; text-align: left;">
+            <span>1997-09-25</span>
+          </div>
+          <div style="flex: 1"></div>
+        </div>
+        <!-- 과정명 -->
+        <div class="mt10 df">
+          <div style="flex: 1;">
+            <span>분&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;야</span>
+          </div>
+          <div style="flex: 2; text-align: left;">
+            <span>더블클래식치즈버거</span>
+          </div>
+        </div>
+        <div class="mt10 df">
+          <div style="flex: 1;">
+            <span>자격번호</span>
+          </div>
+          <div style="flex: 2; text-align: left;">
+            <span>2024-03-12-0001</span>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="width: 100vw;
+      height: 100vh; flex: 1;">
+    <span 
+    >위의 사람은 롯데리아버거시험령에 의하여<br class="break-m" />
+    시행한 2024년도 더블클래식치즈버거자격시험에<br class="break-m break-t" />
+    <small-span class="span-t">합격하였으므로 위와같이 자격을 인정합니다.</small-span>
+  </span>  
+    </div>
+  
+    <div class="footer-background text-center" style="width: 100vw;
+        height: 100vh; flex: 1;">
+      <span>2024년 03월 12일</span>  
+      </div>
+    </div>
+    
+  </body>
+</html>
+
