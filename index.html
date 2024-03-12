@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  <script src="jquery.min.js"></script>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,6 +24,14 @@ body {
     left: 0;
     z-index: -1; 
     opacity: 0.3;
+  }
+
+  .footer-first-background {
+    background-image: url('./lloteria_logo.png'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 0;
+
   }
 
   .footer-background {
@@ -105,9 +114,35 @@ body {
   </head>
 
   <body>
-    <div class="blur-background"></div>
-    <div class="flex">
+    <div id="first">
+      <header>
+        
+      </header>
+      <div class="flex">
         <div class="text-center" style="  width: 100vw;
+        height: 100vh; flex: 1;" >
+        <div class="footer-first-background" style="text-align: center; padding-top: 80px">
+          <b style="font-size: 2rem">자격증 조회</b>
+        </div></div>
+        <div class="text-center" style="  width: 100vw;
+        height: 100vh; flex: 1;">
+        <div><span>성ㅤㅤ명&nbsp;&nbsp;</span>
+          <input type="text" id="name"/></div>
+        <div style="margin-top: 10px;"><span>생년월일&nbsp;&nbsp;</span>
+          <input type="text" id="birth" maxlength="8" placeholder="ex)19960117" /></div>
+        <div style="margin-top: 10px;"><span>햄버거명&nbsp;&nbsp;</span>
+          <input type="text" id="bugger" maxlength="12"/></div>
+        <div style="margin-top: 30px;">
+          <button type="button" id="search_btn">조회</button> </div>
+      </div>
+        <div class="text-center" style="  width: 100vw;
+        height: 100vh; flex: 1;"></div>
+      </div>
+    </div>
+    <div id="second">
+      <div class="blur-background"></div>
+    <div class="flex">
+        <div class="text-center" style="width: 100vw;
         height: 100vh; flex: 1; ">
           <div class="title">
           <b style="font-size: 2rem">자&nbsp;&nbsp;&nbsp;격&nbsp;&nbsp;&nbsp;증</b>
@@ -122,7 +157,7 @@ body {
             <span>성&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;명</span>
           </div>
           <div style="flex: 1; text-align: left;">
-            <span>최예영</span>
+            <span id="result_name">최예영</span>
           </div>
           <div style="flex: 1"></div>
         </div> 
@@ -131,7 +166,7 @@ body {
             <span>생년월일</span>
           </div>
           <div style="flex: 1; text-align: left;">
-            <span>1997-09-25</span>
+            <span id="result_birth">1997-09-25</span>
           </div>
           <div style="flex: 1"></div>
         </div>
@@ -141,7 +176,7 @@ body {
             <span>분&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;야</span>
           </div>
           <div style="flex: 2; text-align: left;">
-            <span>더블클래식치즈버거</span>
+            <span id="result_bugger">더블클래식치즈버거</span>
           </div>
         </div>
         <div class="mt10 df">
@@ -155,19 +190,71 @@ body {
       </div>
       <div class="text-center" style="width: 100vw;
       height: 100vh; flex: 1;">
-    <span 
+    <span id="result_contents"
     >위의 사람은 롯데리아버거시험령에 의하여<br class="break-m" />
-    시행한 2024년도 더블클래식치즈버거자격시험에<br class="break-m break-t" />
+    시행한 2024년도 <b id="result_contents_bugger" style="color: blue;">더블클래식치즈버거</b>자격시험에<br class="break-m break-t" />
     <small-span class="span-t">합격하였으므로 위와같이 자격을 인정합니다.</small-span>
   </span>  
     </div>
   
     <div class="footer-background text-center" style="width: 100vw;
         height: 100vh; flex: 1;">
-      <span>2024년 03월 12일</span>  
+      <span id="result_footer_date"></span>  
       </div>
+    </div>
     </div>
     
   </body>
+  <script>
+    $("#second").css('display','none')
+
+        $("#name").on("keyup",function(key){ 
+      if(key.keyCode==13){ $('#birth').focus(); } });
+
+    $("#birth").on("keyup",function(key){
+      if(key.keyCode==13) { $('#bugger').focus(); }     });
+
+    $("#bugger").on("keyup",function(key){ 
+        if(key.keyCode==13) { onClickSearch() }     });
+
+    const onClickSearch = () =>{
+      const name = $('#name').val()
+      const birth = $('#birth').val()
+      const bugger = $('#bugger').val()
+
+      if(!name){
+        alert('이름을 입력해주세요')
+        $('#name').focus()
+        return
+      }
+
+      if(!birth){
+        alert('생년월일을 입력해주세요')
+        $('#birth').focus()
+        return
+      }
+
+      if(!bugger){
+        alert('햄버거명을 입력해주세요')
+        $('#bugger').focus()
+        return
+      }
+
+      $("#first").css('display','none')
+      $("#second").css('display','block')
+
+      const date = new Date()
+
+      $("#result_name").text(name)
+      $("#result_birth").text(birth)
+      $("#result_bugger").text(bugger)
+      $("#result_contents_bugger").text(bugger)
+      $("#result_footer_date").text(`${date.getFullYear()}년 ${date.getMonth() +1}월 ${date.getDate()}일`)
+    }
+
+    $("#search_btn").click(()=>{
+      onClickSearch()
+    })
+  </script>
 </html>
 
